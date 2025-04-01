@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vetmanager_internship_app/src/core/extensions/context_extension.dart';
+import 'package:vetmanager_internship_app/src/core/utils/extensions/context_extension.dart';
 import 'package:vetmanager_internship_app/src/core/router/router.dart';
 
 /// {@template home_screen}

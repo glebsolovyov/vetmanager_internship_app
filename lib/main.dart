@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:vetmanager_internship_app/src/core/di/injectable/injectable.dart';
 import 'package:vetmanager_internship_app/src/core/router/router.dart';
 
 void main() {
+  injectDependencies();
   runApp(RouterScope(child: const MyApp()));
 }
 
