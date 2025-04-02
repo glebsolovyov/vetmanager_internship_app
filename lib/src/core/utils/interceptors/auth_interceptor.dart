@@ -53,7 +53,7 @@ extension on Map<String, dynamic> {
   /// Updates the authorization header with a given token.
   set authorizationHeader(String? token) {
     if (token != null) {
-      this[HttpHeaders.authorizationHeader] = 'Bearer $token';
+      this['X-TOKEN'] = token;
     } else {
       remove(HttpHeaders.authorizationHeader);
     }
