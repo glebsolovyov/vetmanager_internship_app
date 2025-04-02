@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vetmanager_internship_app/src/core/utils/extensions/context_extension.dart';
-import 'package:vetmanager_internship_app/src/core/router/router.dart';
+import 'package:vetmanager_internship_app/src/feature/admission/widget/home_view.dart';
 
 /// {@template home_screen}
 /// HomeScreen widget.
@@ -12,14 +11,5 @@ class HomeScreen extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    // ModalRoute.settingsOf(context).arguments;
-    return Center(
-      child: ElevatedButton(
-        onPressed: () => context.router
-            .push(AppRoute(path: '/visits', arguments: {'1': 'fdsafsd'})),
-        child: Text('aaaa'),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => HomeView();
 }
