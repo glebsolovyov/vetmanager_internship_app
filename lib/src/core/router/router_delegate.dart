@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vetmanager_internship_app/src/core/router/router.dart';
 import 'package:vetmanager_internship_app/src/core/screens/home_screen.dart';
-import 'package:vetmanager_internship_app/src/core/screens/visit_screen.dart';
-import 'package:vetmanager_internship_app/src/core/screens/visits_screen.dart';
+import 'package:vetmanager_internship_app/src/core/screens/admission_screen.dart';
+import 'package:vetmanager_internship_app/src/core/screens/admissions_list_screen.dart';
 
 class AppRouterDelegate extends RouterDelegate<AppRoute>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<AppRoute> {
@@ -25,17 +25,17 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
       pages: [
         //TODO home
         MaterialPage(child: HomeScreen()),
-        if (_currentRouteConfig.path == '/visits')
+        if (_currentRouteConfig.path == '/admissions_list')
 
           //TODO visits
           MaterialPage(
-            child: VisitsScreen(),
+            child: AdmissionListScreen(),
             arguments: _currentRouteConfig.arguments,
           ),
-        if (_currentRouteConfig.path == '/visit')
+        if (_currentRouteConfig.path == '/admission')
           //TODO visit
           MaterialPage(
-            child: VisitScreen(),
+            child: AdmissionScreen(),
             arguments: _currentRouteConfig.arguments,
           ),
       ],
