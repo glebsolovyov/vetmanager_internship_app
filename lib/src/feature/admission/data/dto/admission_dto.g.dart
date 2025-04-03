@@ -13,7 +13,7 @@ AdmissionDto _$AdmissionDtoFromJson(Map<String, dynamic> json) => AdmissionDto(
       patientId: json['patient_id'] as String,
       typeId: json['type_id'] as String,
       admissionLength: json['admission_length'] as String,
-      status: json['status'] as String,
+      status: $enumDecode(_$AdmissionStatusEnumMap, json['status']),
       clinicId: json['clinic_id'] as String,
       directDirection: json['direct_direction'] as String,
       creatorId: json['creator_id'] as String,
@@ -31,3 +31,10 @@ AdmissionDto _$AdmissionDtoFromJson(Map<String, dynamic> json) => AdmissionDto(
           : DoctorDto.fromJson(json['doctor_data'] as Map<String, dynamic>),
       admissionTypeColor: json['admission_type_color'] as String?,
     );
+
+const _$AdmissionStatusEnumMap = {
+  AdmissionStatus.pending: 'pending',
+  AdmissionStatus.completed: 'completed',
+  AdmissionStatus.canceled: 'canceled',
+  AdmissionStatus.delayed: 'delayed',
+};

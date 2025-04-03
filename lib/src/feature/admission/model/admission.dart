@@ -1,6 +1,7 @@
 import 'package:vetmanager_internship_app/src/feature/admission/model/client.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/model/doctor.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/model/pet.dart';
+import 'package:vetmanager_internship_app/src/feature/admission/utils/enum/admission_status.dart';
 
 class Admission {
   Admission({
@@ -32,7 +33,7 @@ class Admission {
   final String patientId;
   final String typeId;
   final String admissionLength;
-  final String status;
+  final AdmissionStatus status;
   final String clinicId;
   final String directDirection;
   final String creatorId;

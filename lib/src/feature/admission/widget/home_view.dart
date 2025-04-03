@@ -3,6 +3,7 @@ import 'package:vetmanager_internship_app/src/core/router/router.dart';
 import 'package:vetmanager_internship_app/src/core/utils/extensions/context_extension.dart';
 import 'package:vetmanager_internship_app/src/core/utils/extensions/text_style_extension.dart';
 import 'package:vetmanager_internship_app/src/core/utils/widget/app_button.dart';
+import 'package:vetmanager_internship_app/src/core/utils/widget/default_app_bar.dart';
 
 /// {@template home_view}
 /// HomeView widget.
@@ -18,13 +19,7 @@ class HomeView extends StatelessWidget {
     final appColors = Theme.of(context).colorScheme;
     final appTextStyles = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Vet Manager',
-          style: appTextStyles.titleMedium.withColor(appColors.onPrimary),
-        ),
-        backgroundColor: appColors.primary,
-      ),
+      appBar: DefaultAppBar(title: 'Vet Manager'),
       body: Center(
         child: SizedBox(
           height: 200,

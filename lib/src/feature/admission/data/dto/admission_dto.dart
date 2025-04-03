@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/data/dto/client_dto.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/data/dto/doctor_dto.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/data/dto/pet_dto.dart';
+import 'package:vetmanager_internship_app/src/feature/admission/utils/enum/admission_status.dart';
 
 part 'admission_dto.g.dart';
 
@@ -36,7 +37,7 @@ class AdmissionDto {
   final String patientId;
   final String typeId;
   final String admissionLength;
-  final String status;
+  final AdmissionStatus status;
   final String clinicId;
   final String directDirection;
   final String creatorId;
