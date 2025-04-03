@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 final $lightThemeData = ThemeData(
   useMaterial3: true,
   colorScheme: _lightColorScheme,
+  scaffoldBackgroundColor: Color(0xFFEEF1F4),
   textTheme: _lightTextTheme,
 );
 
@@ -12,7 +13,7 @@ final _fontFamily = 'Manrope';
 final _lightColorScheme = ColorScheme.light(
   primary: const Color(0xFF64A6FF),
   onPrimary: Colors.white,
-  secondary: const Color(0xFFADB5BD),
+  secondary: const Color(0xFFE0E0E0),
   onSecondary: Colors.black,
 );
 

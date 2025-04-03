@@ -42,9 +42,9 @@ class AdmissionsListCubit extends BaseCubit<AdmissionsListState> {
           filterByDoctors: filterByDoctors,
           page: page,
         );
-        return state.copyWith(admissions: result);
+        return state.copyWith(admissions: result, isLoading: false);
       },
-      onError: (e) => state.copyWith(error: e),
+      onError: (e) => state.copyWith(error: e, isLoading: false),
     );
   }
 }

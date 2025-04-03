@@ -13,7 +13,9 @@ abstract class BaseCubit<T> extends Cubit<T> {
     required Future<T> Function() callback,
     required T Function(AppException e) onError,
   }) async {
-    onStart?.call();
+    if (onStart != null) {
+      emit(onStart());
+    }
     try {
       final newState = await callback();
       emit(newState);
