@@ -11,6 +11,7 @@ class MaterialContext extends StatelessWidget {
   Widget build(BuildContext context) {
     final router = RouterScope.of(context);
     return MaterialApp.router(
+      theme: $lightThemeData,
       routerDelegate: router.routerDelegate,
       routeInformationParser: router.routeInformationParser,
     );
