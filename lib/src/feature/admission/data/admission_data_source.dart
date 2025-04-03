@@ -10,4 +10,6 @@ abstract interface class AdmissionDataSource {
     required String filterByDoctors,
     required int page,
   });
+
+  Future<Admission> fetchAdmission(int id);
 }

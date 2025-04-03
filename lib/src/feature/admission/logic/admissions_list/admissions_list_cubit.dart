@@ -6,9 +6,9 @@ import 'package:vetmanager_internship_app/src/core/utils/exception/base_exceptio
 import 'package:vetmanager_internship_app/src/feature/admission/data/admission_repository.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/model/admission.dart';
 
-part 'admission_list_cubit.freezed.dart';
+part 'admissions_list_cubit.freezed.dart';
 
-part 'admission_list_state.dart';
+part 'admissions_list_state.dart';
 
 @injectable
 class AdmissionsListCubit extends BaseCubit<AdmissionsListState> {

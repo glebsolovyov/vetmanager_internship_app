@@ -26,7 +26,8 @@ AdmissionDto _$AdmissionDtoFromJson(Map<String, dynamic> json) => AdmissionDto(
       clientData:
           ClientDto.fromJson(json['client_data'] as Map<String, dynamic>),
       invoicesData: json['invoices_data'] as List<dynamic>?,
-      doctorData:
-          DoctorDto.fromJson(json['doctor_data'] as Map<String, dynamic>),
+      doctorData: json['doctor_data'] == null
+          ? null
+          : DoctorDto.fromJson(json['doctor_data'] as Map<String, dynamic>),
       admissionTypeColor: json['admission_type_color'] as String?,
     );

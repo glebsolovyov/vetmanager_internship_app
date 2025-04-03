@@ -28,8 +28,10 @@ import 'package:vetmanager_internship_app/src/feature/admission/data/admission_r
     as _i1038;
 import 'package:vetmanager_internship_app/src/feature/admission/data/admission_repository_impl.dart'
     as _i270;
-import 'package:vetmanager_internship_app/src/feature/admission/logic/admission_list_cubit.dart'
-    as _i322;
+import 'package:vetmanager_internship_app/src/feature/admission/logic/admission/admission_cubit.dart'
+    as _i587;
+import 'package:vetmanager_internship_app/src/feature/admission/logic/admissions_list/admissions_list_cubit.dart'
+    as _i85;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -51,8 +53,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i945.AdmissionDataSourceImpl(gh<_i745.AppRestClient>()));
     gh.factory<_i1038.AdmissionRepository>(
         () => _i270.AdmissionRepositoryImpl(gh<_i78.AdmissionDataSource>()));
-    gh.factory<_i322.AdmissionsListCubit>(
-        () => _i322.AdmissionsListCubit(gh<_i1038.AdmissionRepository>()));
+    gh.factory<_i85.AdmissionsListCubit>(
+        () => _i85.AdmissionsListCubit(gh<_i1038.AdmissionRepository>()));
+    gh.factory<_i587.AdmissionCubit>(
+        () => _i587.AdmissionCubit(gh<_i1038.AdmissionRepository>()));
     return this;
   }
 }

@@ -19,4 +19,9 @@ abstract class AppRestClient {
     @Query('filter[filter_by_doctors]') String filterByDoctors,
     @Query('page[no_paging]') int page,
   );
+
+  @GET('/users/admission/{id}')
+  Future<AdmissionDto> fetchAdmission(
+    @Path('id') int id,
+  );
 }

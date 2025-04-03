@@ -13,6 +13,7 @@ class AdmissionDataSourceImpl implements AdmissionDataSource {
       : _appRestClient = appRestClient;
 
   final AppRestClient _appRestClient;
+
   @override
   Future<List<Admission>> fetchAdmissions({
     required int id,
@@ -27,6 +28,18 @@ class AdmissionDataSourceImpl implements AdmissionDataSource {
       final result = await _appRestClient.fetchAdmissions(
           1, 'delayed', 'desc', 10, 1, 'my', 0);
       return result.toModels();
+    } on DioException catch (e) {
+      throw e.toNetworkException();
+    } catch (e, s) {
+      throw UnexpectedException(message: e.toString(), stackTrace: s);
+    }
+  }
+
+  @override
+  Future<Admission> fetchAdmission(int id) async {
+    try {
+      final result = await _appRestClient.fetchAdmission(id);
+      return result.toModel();
     } on DioException catch (e) {
       throw e.toNetworkException();
     } catch (e, s) {

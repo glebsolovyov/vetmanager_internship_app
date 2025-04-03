@@ -23,19 +23,17 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
     return Navigator(
       key: navigatorKey,
       pages: [
-        //TODO home
         MaterialPage(child: HomeScreen()),
         if (_currentRouteConfig.path == '/admissions_list')
-
-          //TODO visits
           MaterialPage(
             child: AdmissionListScreen(),
             arguments: _currentRouteConfig.arguments,
           ),
         if (_currentRouteConfig.path == '/admission')
-          //TODO visit
           MaterialPage(
-            child: AdmissionScreen(),
+            child: AdmissionScreen(
+              id: _currentRouteConfig.arguments?['id'] as String?,
+            ),
             arguments: _currentRouteConfig.arguments,
           ),
       ],

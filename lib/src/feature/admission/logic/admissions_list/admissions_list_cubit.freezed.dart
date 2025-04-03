@@ -4,7 +4,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'admission_list_cubit.dart';
+part of 'admissions_list_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -94,8 +94,8 @@ class _$AdmissionsListStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _AdmissionListState implements AdmissionsListState {
-  const _AdmissionListState(
+class _AdmissionsListState implements AdmissionsListState {
+  const _AdmissionsListState(
       {final List<Admission> admissions = const [],
       this.isLoading = false,
       this.error})
@@ -121,14 +121,15 @@ class _AdmissionListState implements AdmissionsListState {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$AdmissionListStateCopyWith<_AdmissionListState> get copyWith =>
-      __$AdmissionListStateCopyWithImpl<_AdmissionListState>(this, _$identity);
+  _$AdmissionsListStateCopyWith<_AdmissionsListState> get copyWith =>
+      __$AdmissionsListStateCopyWithImpl<_AdmissionsListState>(
+          this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AdmissionListState &&
+            other is _AdmissionsListState &&
             const DeepCollectionEquality()
                 .equals(other._admissions, _admissions) &&
             (identical(other.isLoading, isLoading) ||
@@ -147,23 +148,23 @@ class _AdmissionListState implements AdmissionsListState {
 }
 
 /// @nodoc
-abstract mixin class _$AdmissionListStateCopyWith<$Res>
+abstract mixin class _$AdmissionsListStateCopyWith<$Res>
     implements $AdmissionsListStateCopyWith<$Res> {
-  factory _$AdmissionListStateCopyWith(
-          _AdmissionListState value, $Res Function(_AdmissionListState) _then) =
-      __$AdmissionListStateCopyWithImpl;
+  factory _$AdmissionsListStateCopyWith(_AdmissionsListState value,
+          $Res Function(_AdmissionsListState) _then) =
+      __$AdmissionsListStateCopyWithImpl;
   @override
   @useResult
   $Res call({List<Admission> admissions, bool isLoading, AppException? error});
 }
 
 /// @nodoc
-class __$AdmissionListStateCopyWithImpl<$Res>
-    implements _$AdmissionListStateCopyWith<$Res> {
-  __$AdmissionListStateCopyWithImpl(this._self, this._then);
+class __$AdmissionsListStateCopyWithImpl<$Res>
+    implements _$AdmissionsListStateCopyWith<$Res> {
+  __$AdmissionsListStateCopyWithImpl(this._self, this._then);
 
-  final _AdmissionListState _self;
-  final $Res Function(_AdmissionListState) _then;
+  final _AdmissionsListState _self;
+  final $Res Function(_AdmissionsListState) _then;
 
   /// Create a copy of AdmissionsListState
   /// with the given fields replaced by the non-null parameter values.
@@ -174,7 +175,7 @@ class __$AdmissionListStateCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? error = freezed,
   }) {
-    return _then(_AdmissionListState(
+    return _then(_AdmissionsListState(
       admissions: null == admissions
           ? _self._admissions
           : admissions // ignore: cast_nullable_to_non_nullable
