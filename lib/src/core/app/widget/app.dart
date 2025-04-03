@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vetmanager_internship_app/src/core/app/theme.dart';
 import 'package:vetmanager_internship_app/src/core/router/router.dart';
 
 part 'material_context.dart';
