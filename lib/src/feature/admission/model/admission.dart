@@ -44,6 +44,6 @@ class Admission {
   final Pet petData;
   final Client clientData;
   final List<dynamic>? invoicesData;
-  final Doctor doctorData;
+  final Doctor? doctorData;
   final String? admissionTypeColor;
 }

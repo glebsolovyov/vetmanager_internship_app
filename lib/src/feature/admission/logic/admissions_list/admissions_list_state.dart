@@ -1,4 +1,4 @@
-part of 'admission_list_cubit.dart';
+part of 'admissions_list_cubit.dart';
 
 @freezed
 sealed class AdmissionsListState with _$AdmissionsListState {
@@ -6,5 +6,5 @@ sealed class AdmissionsListState with _$AdmissionsListState {
     @Default([]) List<Admission> admissions,
     @Default(false) bool isLoading,
     AppException? error,
-  }) = _AdmissionListState;
+  }) = _AdmissionsListState;
 }

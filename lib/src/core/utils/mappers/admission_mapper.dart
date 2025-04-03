@@ -24,7 +24,7 @@ extension AdmissionDtoMapper on AdmissionDto {
         petData: petData.toModel(),
         clientData: clientData.toModel(),
         invoicesData: invoicesData,
-        doctorData: doctorData.toModel(),
+        doctorData: doctorData?.toModel(),
         admissionTypeColor: admissionTypeColor,
       );
 }

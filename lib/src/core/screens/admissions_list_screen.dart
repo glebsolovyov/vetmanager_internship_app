@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vetmanager_internship_app/src/core/di/injectable/injectable.dart';
-import 'package:vetmanager_internship_app/src/feature/admission/logic/admission_list_cubit.dart';
+import 'package:vetmanager_internship_app/src/feature/admission/logic/admissions_list/admissions_list_cubit.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/widget/admissions_list_view.dart';
 
 /// {@template admission_list_screen}

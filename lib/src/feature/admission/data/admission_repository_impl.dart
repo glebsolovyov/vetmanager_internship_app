@@ -29,4 +29,8 @@ class AdmissionRepositoryImpl implements AdmissionRepository {
         filterByDoctors: filterByDoctors,
         page: page,
       );
+
+  @override
+  Future<Admission> fetchAdmission(int id) =>
+      _admissionDataSource.fetchAdmission(id);
 }

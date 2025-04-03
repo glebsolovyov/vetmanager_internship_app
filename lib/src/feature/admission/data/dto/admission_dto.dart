@@ -48,7 +48,7 @@ class AdmissionDto {
   final PetDto petData;
   final ClientDto clientData;
   final List<dynamic>? invoicesData;
-  final DoctorDto doctorData;
+  final DoctorDto? doctorData;
   final String? admissionTypeColor;
 
   factory AdmissionDto.fromJson(Map<String, dynamic> json) =>
