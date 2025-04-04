@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:vetmanager_internship_app/src/core/utils/extensions/color_extension.dart';
+import 'package:vetmanager_internship_app/src/core/utils/extensions/context_extension.dart';
 
 /// {@template shimmer}
 /// A widget that creates a shimmering effect similar
@@ -97,7 +98,6 @@ class _ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).colorScheme;
     return SizedBox.fromSize(
       size: widget.size,
       child: RepaintBoundary(
@@ -113,9 +113,9 @@ class _ShimmerState extends State<Shimmer> with SingleTickerProviderStateMixin {
               painter: _ShimmerPainter(
                 shader: snapshot.data,
                 seed: _seed,
-                color: widget.color ?? appColors.secondary,
+                color: widget.color ?? context.colors.secondary,
                 backgroundColor:
-                    widget.backgroundColor ?? appColors.secondary.darken(),
+                    widget.backgroundColor ?? context.colors.secondary.darken(),
                 stripeWidth: widget.stripeWidth,
               ),
             ),

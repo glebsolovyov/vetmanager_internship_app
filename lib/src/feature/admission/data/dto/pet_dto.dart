@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:vetmanager_internship_app/src/feature/admission/utils/enum/pet_sex.dart';
 
 part 'pet_dto.g.dart';
 
@@ -16,7 +17,7 @@ class PetDto {
   });
 
   final String petId;
-  final String sex;
+  final PetSex sex;
   final String alias;
   final String petType;
   final String? petBreed;

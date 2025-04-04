@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vetmanager_internship_app/src/core/utils/extensions/context_extension.dart';
 import 'package:vetmanager_internship_app/src/core/utils/extensions/text_style_extension.dart';
 
 /// {@template default_app_bar}
@@ -10,30 +11,32 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     required this.title,
     this.needBackButton = false,
+    this.centerTitle = false,
   });
 
   final String title;
   final bool needBackButton;
+  final bool centerTitle;
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).colorScheme;
-    final appTextStyles = Theme.of(context).textTheme;
-
     return AppBar(
       title: Text(
         title,
-        style: appTextStyles.titleMedium.withColor(appColors.onPrimary),
+        style:
+            context.textStyles.titleMedium.withColor(context.colors.onPrimary),
       ),
       leading: needBackButton
           ? IconButton(
               icon: Icon(Icons.chevron_left),
-              color: appColors.onPrimary,
+              color: context.colors.onPrimary,
               iconSize: 32,
               onPressed: () => Navigator.pop(context),
             )
           : SizedBox.shrink(),
-      backgroundColor: appColors.primary,
+      centerTitle: centerTitle,
+      titleSpacing: 0,
+      backgroundColor: context.colors.primary,
     );
   }
 

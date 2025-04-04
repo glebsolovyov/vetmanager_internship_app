@@ -25,3 +25,12 @@ class Client {
   final String? phonePrefix;
   final String cellPhoneClean;
 }
+
+extension ClientExtension on Client {
+  String get fullName {
+    if (middleName != null) {
+      return '$firstName $middleName $lastName';
+    }
+    return '$firstName $lastName';
+  }
+}

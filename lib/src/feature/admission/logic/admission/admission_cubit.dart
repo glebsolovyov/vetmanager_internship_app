@@ -26,9 +26,9 @@ class AdmissionCubit extends BaseCubit<AdmissionState> {
       onStart: () => state.copyWith(isLoading: true),
       callback: () async {
         final result = await _admissionRepository.fetchAdmission(id);
-        return state.copyWith(admission: result);
+        return state.copyWith(admission: result, isLoading: false);
       },
-      onError: (e) => state.copyWith(error: e),
+      onError: (e) => state.copyWith(error: e, isLoading: false),
     );
   }
 }

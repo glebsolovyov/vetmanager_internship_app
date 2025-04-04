@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vetmanager_internship_app/src/core/utils/extensions/context_extension.dart';
 
 /// A button widget with a custom style.
 class AppButton extends StatelessWidget {
@@ -62,11 +63,9 @@ class AppButton extends StatelessWidget {
   }
 
   ButtonStyle _buildButtonStyle(BuildContext context) {
-    final appColors = Theme.of(context).colorScheme;
-
     return ButtonStyle(
-      backgroundColor: WidgetStatePropertyAll(appColors.primary),
-      foregroundColor: WidgetStatePropertyAll(appColors.onPrimary),
+      backgroundColor: WidgetStatePropertyAll(context.colors.primary),
+      foregroundColor: WidgetStatePropertyAll(context.colors.onPrimary),
       textStyle: WidgetStatePropertyAll(
         Theme.of(context).textTheme.bodyMedium,
       ),

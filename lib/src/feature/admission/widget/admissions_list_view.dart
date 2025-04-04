@@ -6,7 +6,7 @@ import 'package:vetmanager_internship_app/src/core/utils/extensions/context_exte
 import 'package:vetmanager_internship_app/src/core/utils/widget/default_app_bar.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/logic/admissions_list/admissions_list_cubit.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/widget/component/admission_list_tile.dart';
-import 'package:vetmanager_internship_app/src/feature/admission/widget/component/admissions_list_skeleton.dart';
+import 'package:vetmanager_internship_app/src/feature/admission/widget/component/admissions_list_view_skeleton.dart';
 
 /// {@template admissions_list_view}
 /// AdmissionsListView widget.
