@@ -5,6 +5,7 @@ import 'package:vetmanager_internship_app/src/core/utils/cubit/base_cubit.dart';
 import 'package:vetmanager_internship_app/src/core/utils/exception/base_exception.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/data/admission_repository.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/model/admission.dart';
+import 'package:vetmanager_internship_app/src/feature/admission/model/fetch_admissions_list_query.dart';
 
 part 'admissions_list_cubit.freezed.dart';
 
@@ -33,16 +34,16 @@ class AdmissionsListCubit extends BaseCubit<AdmissionsListState> {
     safeEmit(
       onStart: () => state.copyWith(isLoading: true),
       callback: () async {
-        final result = await _admissionRepository.fetchAdmissions(
-          id: id,
-          filter: filter,
-          sort: sort,
-          pageSize: pageSize,
-          pageNumber: pageNumber,
-          filterByDoctors: filterByDoctors,
-          page: page,
+        final result = await _admissionRepository.fetchAdmissionsList(
+          FetchAdmissionsQuery(
+              id: id,
+              filter: filter,
+              sort: sort,
+              pageSize: pageSize,
+              pageNumber: pageNumber,
+              filterByDoctors: filterByDoctors),
         );
-        return state.copyWith(admissions: result, isLoading: false);
+        return state.copyWith(admissions: result.admissions, isLoading: false);
       },
       onError: (e) => state.copyWith(error: e, isLoading: false),
     );

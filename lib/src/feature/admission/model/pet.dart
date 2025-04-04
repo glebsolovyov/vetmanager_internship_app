@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/utils/enum/pet_sex.dart';
 
-class Pet {
-  Pet({
+class Pet extends Equatable {
+  const Pet({
     required this.petId,
     required this.sex,
     required this.alias,
@@ -20,4 +21,16 @@ class Pet {
   final String? birthday;
   final String petTypeId;
   final Uri url;
+
+  @override
+  List<Object?> get props => [
+        petId,
+        sex,
+        alias,
+        petType,
+        petBreed,
+        birthday,
+        petTypeId,
+        url,
+      ];
 }

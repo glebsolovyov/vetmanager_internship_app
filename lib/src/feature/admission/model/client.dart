@@ -1,5 +1,7 @@
-class Client {
-  Client({
+import 'package:equatable/equatable.dart';
+
+class Client extends Equatable {
+  const Client({
     required this.clientId,
     required this.firstName,
     required this.middleName,
@@ -24,6 +26,21 @@ class Client {
   final String? clientType;
   final String? phonePrefix;
   final String cellPhoneClean;
+
+  @override
+  List<Object?> get props => [
+        clientId,
+        firstName,
+        middleName,
+        lastName,
+        email,
+        cellPhone,
+        address,
+        inBlacklist,
+        clientType,
+        phonePrefix,
+        cellPhoneClean,
+      ];
 }
 
 extension ClientExtension on Client {

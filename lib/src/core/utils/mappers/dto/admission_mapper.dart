@@ -1,6 +1,6 @@
-import 'package:vetmanager_internship_app/src/core/utils/mappers/client_mapper.dart';
-import 'package:vetmanager_internship_app/src/core/utils/mappers/doctor_mapper.dart';
-import 'package:vetmanager_internship_app/src/core/utils/mappers/pet_mapper.dart';
+import 'package:vetmanager_internship_app/src/core/utils/mappers/dto/client_mapper.dart';
+import 'package:vetmanager_internship_app/src/core/utils/mappers/dto/doctor_mapper.dart';
+import 'package:vetmanager_internship_app/src/core/utils/mappers/dto/pet_mapper.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/data/dto/admission_dto.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/model/admission.dart';
 

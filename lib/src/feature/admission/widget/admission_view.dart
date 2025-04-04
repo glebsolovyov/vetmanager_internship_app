@@ -30,52 +30,58 @@ class AdmissionView extends StatelessWidget {
 
           return Scaffold(
             appBar: DefaultAppBar(title: 'Прием №$id', needBackButton: true),
-            body: state.isLoading || state.admission == null
-                ? const AdmissionViewSkeleton()
-                : Builder(
-                    builder: (context) {
-                      final doctor = admission!.doctorData;
-                      final client = admission.clientData;
-                      return ListView(
+            body: Builder(
+              builder: (context) {
+                if (state.isLoading || state.admission == null) {
+                  return AdmissionViewSkeleton();
+                }
+                final doctor = admission!.doctorData;
+                final client = admission.clientData;
+                final pet = admission.petData;
+
+                return ListView(
+                  children: [
+                    if (pet != null) ...[
+                      PetCard(pet: state.admission!.petData!),
+                      SizedBox(height: 8),
+                    ],
+                    AppContainer(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          PetCard(pet: state.admission!.petData),
-                          SizedBox(height: 8),
-                          AppContainer(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Детали приема',
-                                  style: context.textStyles.bodyLarge,
-                                ),
-                                SizedBox(height: 12),
-                                InfoContainer(
-                                  title: 'Дата приема:',
-                                  subTitle: admission.admissionDate.ddMMyyHHmm,
-                                  needMaxFinitWidth: true,
-                                ),
-                                SizedBox(height: 8),
-                                if (doctor != null) ...[
-                                  InfoContainer(
-                                    title: 'Имя доктора:',
-                                    subTitle: doctor.firstName,
-                                    needMaxFinitWidth: true,
-                                  ),
-                                  SizedBox(height: 8),
-                                ],
-                                InfoContainer(
-                                  title: 'Имя клиента:',
-                                  subTitle: client.fullName,
-                                  needMaxFinitWidth: true,
-                                ),
-                                SizedBox(height: 8),
-                              ],
-                            ),
+                          Text(
+                            'Детали приема',
+                            style: context.textStyles.bodyLarge,
                           ),
+                          SizedBox(height: 12),
+                          InfoContainer(
+                            title: 'Дата приема:',
+                            subTitle: admission.admissionDate.ddMMyyHHmm,
+                            needMaxFinitWidth: true,
+                          ),
+                          SizedBox(height: 8),
+                          if (doctor != null) ...[
+                            InfoContainer(
+                              title: 'Имя доктора:',
+                              subTitle: doctor.firstName,
+                              needMaxFinitWidth: true,
+                            ),
+                            SizedBox(height: 8),
+                          ],
+                          if (client != null)
+                            InfoContainer(
+                              title: 'Имя клиента:',
+                              subTitle: client.fullName,
+                              needMaxFinitWidth: true,
+                            ),
+                          SizedBox(height: 8),
                         ],
-                      );
-                    },
-                  ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
           );
         },
       );

@@ -1,10 +1,12 @@
+import 'package:equatable/equatable.dart';
+
 import 'package:vetmanager_internship_app/src/feature/admission/model/client.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/model/doctor.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/model/pet.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/utils/enum/admission_status.dart';
 
-class Admission {
-  Admission({
+class Admission extends Equatable {
+  const Admission({
     required this.id,
     required this.admissionDate,
     required this.clientId,
@@ -22,7 +24,7 @@ class Admission {
     required this.waitTime,
     required this.petData,
     required this.clientData,
-    required this.invoicesData,
+    this.invoicesData = const [],
     required this.doctorData,
     required this.admissionTypeColor,
   });
@@ -42,9 +44,33 @@ class Admission {
   final String receptionWriteChannel;
   final String iconReceptionWriteChannel;
   final String? waitTime;
-  final Pet petData;
-  final Client clientData;
-  final List<dynamic>? invoicesData;
+  final Pet? petData;
+  final Client? clientData;
+  final List<String> invoicesData;
   final Doctor? doctorData;
   final String? admissionTypeColor;
+
+  @override
+  List<Object?> get props => [
+        id,
+        admissionDate,
+        clientId,
+        patientId,
+        typeId,
+        admissionLength,
+        status,
+        clinicId,
+        directDirection,
+        creatorId,
+        createDate,
+        escroterId,
+        receptionWriteChannel,
+        iconReceptionWriteChannel,
+        waitTime,
+        petData,
+        clientData,
+        invoicesData,
+        doctorData,
+        admissionTypeColor
+      ];
 }
