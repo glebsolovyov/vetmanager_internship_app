@@ -1,3 +1,4 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/data/dto/client_dto.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/data/dto/doctor_dto.dart';
@@ -26,7 +27,7 @@ class AdmissionDto {
     required this.waitTime,
     required this.petData,
     required this.clientData,
-    required this.invoicesData,
+    this.invoicesData = const [],
     required this.doctorData,
     required this.admissionTypeColor,
   });
@@ -48,7 +49,7 @@ class AdmissionDto {
   final String? waitTime;
   final PetDto petData;
   final ClientDto clientData;
-  final List<dynamic>? invoicesData;
+  final List<String> invoicesData;
   final DoctorDto? doctorData;
   final String? admissionTypeColor;
 

@@ -53,6 +53,7 @@ class _AdmissionListTileState extends State<AdmissionListTile>
 
   @override
   Widget build(BuildContext context) {
+    final petAlias = widget.admission.petData?.alias ?? 'Кличка неизвестна';
     return GestureDetector(
       onTapDown: (_) => _controller.forward(),
       onTapUp: (_) async {
@@ -78,7 +79,7 @@ class _AdmissionListTileState extends State<AdmissionListTile>
               ),
               SizedBox(height: 8),
               Text(
-                widget.admission.petData.alias,
+                petAlias,
                 style: context.textStyles.bodyMedium,
               ),
               SizedBox(height: 8),

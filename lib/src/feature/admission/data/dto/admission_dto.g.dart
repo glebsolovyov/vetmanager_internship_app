@@ -25,7 +25,10 @@ AdmissionDto _$AdmissionDtoFromJson(Map<String, dynamic> json) => AdmissionDto(
       petData: PetDto.fromJson(json['pet_data'] as Map<String, dynamic>),
       clientData:
           ClientDto.fromJson(json['client_data'] as Map<String, dynamic>),
-      invoicesData: json['invoices_data'] as List<dynamic>?,
+      invoicesData: (json['invoices_data'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
       doctorData: json['doctor_data'] == null
           ? null
           : DoctorDto.fromJson(json['doctor_data'] as Map<String, dynamic>),

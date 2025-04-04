@@ -1,5 +1,7 @@
-class Doctor {
-  Doctor({
+import 'package:equatable/equatable.dart';
+
+class Doctor extends Equatable {
+  const Doctor({
     required this.doctorId,
     required this.lastName,
     required this.firstName,
@@ -12,6 +14,15 @@ class Doctor {
   final String firstName;
   final String? middleName;
   final String? nickName;
+
+  @override
+  List<Object?> get props => [
+        doctorId,
+        lastName,
+        firstName,
+        middleName,
+        nickName,
+      ];
 }
 
 extension DoctorExtension on Doctor {
