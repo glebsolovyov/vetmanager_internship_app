@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:vetmanager_internship_app/src/core/utils/extensions/context_extension.dart';
 import 'package:vetmanager_internship_app/src/core/utils/extensions/datetime_extensions.dart';
+import 'package:vetmanager_internship_app/src/core/utils/widget/app_container.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/model/admission.dart';
 import 'package:vetmanager_internship_app/src/feature/admission/utils/enum/admission_status.dart';
 
 /// {@template admission_list_tile}
 /// AdmissionListTile widget.
 /// {@endtemplate}
-class AdmissionListTile extends StatelessWidget {
+class AdmissionListTile extends StatefulWidget {
   /// {@macro admission_list_tile}
   const AdmissionListTile({
     super.key,
@@ -18,44 +20,75 @@ class AdmissionListTile extends StatelessWidget {
   final VoidCallback onTap;
 
   @override
-  Widget build(BuildContext context) {
-    final appColors = Theme.of(context).colorScheme;
-    final appTextStyles = Theme.of(context).textTheme;
+  State<AdmissionListTile> createState() => _AdmissionListTileState();
+}
 
+class _AdmissionListTileState extends State<AdmissionListTile>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 200),
+    );
+
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.95).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-        padding: EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          color: appColors.onPrimary,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                _StatusWidget(title: admission.status.title),
-                Spacer(),
-                Text(
-                  admission.admissionDate.ddMMyyHHmm,
-                  style: appTextStyles.bodyMedium,
-                )
-              ],
-            ),
-            SizedBox(height: 8),
-            Text(
-              admission.petData.alias,
-              style: appTextStyles.bodyMedium,
-            ),
-            SizedBox(height: 8),
-            if (admission.doctorData != null)
-              Text(
-                '${admission.doctorData!.firstName} ${admission.doctorData!.lastName}',
-                style: appTextStyles.bodyMedium,
+      onTapDown: (_) => _controller.forward(),
+      onTapUp: (_) async {
+        await Future.delayed(Duration(milliseconds: 200), widget.onTap);
+        _controller.reverse();
+      },
+      onTapCancel: _controller.reverse,
+      child: ScaleTransition(
+        scale: _scaleAnimation,
+        child: AppContainer(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  _StatusWidget(title: widget.admission.status.title),
+                  Spacer(),
+                  Text(
+                    widget.admission.admissionDate.ddMMyyHHmm,
+                    style: context.textStyles.bodyMedium,
+                  )
+                ],
               ),
-          ],
+              SizedBox(height: 8),
+              Text(
+                widget.admission.petData.alias,
+                style: context.textStyles.bodyMedium,
+              ),
+              SizedBox(height: 8),
+              if (widget.admission.doctorData != null)
+                Text(
+                  '${widget.admission.doctorData!.firstName} ${widget.admission.doctorData!.lastName}',
+                  style: context.textStyles.bodyMedium,
+                ),
+            ],
+          ),
         ),
       ),
     );
@@ -75,18 +108,15 @@ class _StatusWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).colorScheme;
-    final appTextStyles = Theme.of(context).textTheme;
-
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
-        color: appColors.secondary,
+        color: context.colors.secondary,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Text(
         title,
-        style: appTextStyles.bodyMedium,
+        style: context.textStyles.bodyMedium,
       ),
     );
   }

@@ -13,3 +13,12 @@ class Doctor {
   final String? middleName;
   final String? nickName;
 }
+
+extension DoctorExtension on Doctor {
+  String get fullName {
+    if (middleName != null) {
+      return '$firstName $middleName $lastName';
+    }
+    return '$firstName $lastName';
+  }
+}

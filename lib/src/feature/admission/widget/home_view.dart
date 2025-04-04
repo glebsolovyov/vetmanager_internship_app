@@ -16,10 +16,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appColors = Theme.of(context).colorScheme;
-    final appTextStyles = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: DefaultAppBar(title: 'Vet Manager'),
+      appBar: DefaultAppBar(title: 'Vet Manager', centerTitle: true),
       body: Center(
         child: SizedBox(
           height: 200,
@@ -28,8 +26,8 @@ class HomeView extends StatelessWidget {
             children: [
               Text(
                 'Для перехода к списку приёмов, нажмите на кнопку ниже',
-                style:
-                    appTextStyles.bodyMedium.withColor(appColors.onSecondary),
+                style: context.textStyles.bodyMedium
+                    .withColor(context.colors.onSecondary),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 16),

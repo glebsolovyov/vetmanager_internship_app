@@ -15,6 +15,7 @@ final _lightColorScheme = ColorScheme.light(
   onPrimary: Colors.white,
   secondary: const Color(0xFFE0E0E0),
   onSecondary: Colors.black,
+  secondaryContainer: Color(0xFFEEF1F4),
 );
 
 final _lightTextTheme = TextTheme(

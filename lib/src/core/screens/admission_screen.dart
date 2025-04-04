@@ -25,7 +25,7 @@ class AdmissionScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           getIt<AdmissionCubit>()..fetchAdmission(int.parse(id!)),
-      child: AdmissionView(),
+      child: AdmissionView(id: id!),
     );
   }
 }
